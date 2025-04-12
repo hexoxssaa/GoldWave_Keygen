@@ -1,4 +1,4 @@
-// GoldWave_Keygen.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// GoldWave_Keygen.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -77,7 +77,9 @@ int main()
 {
 	unsigned int i = 0, j = 0;
 	int x = 5, y = 5;
-	j = strlen(chArry);
+	//chArry is not ended with \0
+	//j = strlen(chArry);
+	j = 32;
 
 	srand(time(NULL));
 	do 
@@ -111,7 +113,7 @@ int main()
 				}
 			} while (y > 2);
 		} while (x < 900000000);
-	} while (x > 1500000000);//ÀûÓÃ¼ÆËã»ú±¾µØ¼ÆËãµÄ·µ»ØÖµ¾ÍÀÁµÃ·ÖÎöĞ´º¯ÊıÁË£¬Õâ±ß¾ÍÖ±½ÓÓÃÊıÖµ´ÕÊı¡£
+	} while (x > 1500000000);//åˆ©ç”¨è®¡ç®—æœºæœ¬åœ°è®¡ç®—çš„è¿”å›å€¼å°±æ‡’å¾—åˆ†æå†™å‡½æ•°äº†ï¼Œè¿™è¾¹å°±ç›´æ¥ç”¨æ•°å€¼å‡‘æ•°ã€‚
 
  	printf("User ID:%s\n", OldUserID);
 
@@ -161,7 +163,9 @@ char* NewUser(char *pUserID, char* pTwoNum)
 		pSign_1 += 5;
 	}
 
-	pUserID[i] = 0;
+	//pUserID already at pUserID[9]
+	//pUserID[i] = 0;
+	*pUserID = 0;
 	chChangeID[i] = 0;
 	return chChangeID;
 }
@@ -256,7 +260,7 @@ int CryptArray(char* pUser, char* pTwoch, char* pSign)
 		*pSign_1 = 0;
 		++i;
 		++pSign_1;
-	} while (i < 66);//ÖÃÁã
+	} while (i < 66);//ç½®é›¶
 
 	signed int j = 0;
 	signed int l;
@@ -277,7 +281,7 @@ int CryptArray(char* pUser, char* pTwoch, char* pSign)
 		} while (k < 7);
 		++j;
 		++pUser;
-	}//Ò»¸ö×ÖÄ¸Õ¼8¸ö×Ö½Ú,×ö±ê¼Ç;
+	}//ä¸€ä¸ªå­—æ¯å 8ä¸ªå­—èŠ‚,åšæ ‡è®°;
 	sub_989E7C(pSign);
 
 	signed int m = 0;
@@ -293,7 +297,7 @@ int CryptArray(char* pUser, char* pTwoch, char* pSign)
 	signed int n = 0;
 	do
 	{
-		//ÓÃ»§ÃûµÚ¾ÅÎ»ºÍÓÃ»§ÃûµÚÒ»Î»¼ÆËã
+		//ç”¨æˆ·åç¬¬ä¹ä½å’Œç”¨æˆ·åç¬¬ä¸€ä½è®¡ç®—
 		signed int nTwoch = *pTwoch++;
 		if (nTwoch > 90)
 			nTwoch -= 6;
